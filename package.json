@@ -52,7 +52,6 @@
 	},
 	"dependencies": {
 		"express": "^4.17.1",
-		"helmet": "^4.6.0",
 		"lodash": "^4.15.21",
 		"my-precious": "^2.0.0"
 	}

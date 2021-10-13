@@ -3,7 +3,7 @@ name: Dependabot
 on:
  pull_request:
     branches:
-    - master
+    - main
 
 jobs:
   run-npx-my-precious:
@@ -23,12 +23,12 @@ jobs:
           git config --global user.name "Dependabot alert"
       - name: Run npx my-precious and build archived-packages
         run: npx my-precious
+      - name: Stage changes
+        run: git add .
       - name: Commit changes to master branch
-        run: | 
-           git add .
-           output=`git commit -m 'archived package'` && echo "::set-output name=OUTPUT::$OUTPUT"
+        run: |  
+           OUTPUT=`git commit -m 'archived package'` && echo "::set-output name=OUTPUT::$OUTPUT"
+           echo $OUTPUT
       - name: Push changes to branch
         if: ${{!contains(steps.main.outputs.OUTPUT, 'up to date')}}
         run: git push
-    
-  

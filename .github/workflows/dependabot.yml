@@ -3,7 +3,7 @@ name: Dependabot
 on:
  pull_request:
     branches:
-    - main
+    - master
 
 jobs:
   run-npx-my-precious:
